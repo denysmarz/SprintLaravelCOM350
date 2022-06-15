@@ -10,10 +10,11 @@
 
 <body>
     <ul>
-        <li>Nombre: {{ $documento->NombreTex }}</li>
         <li>ID: {{ $documento->id }}</li>
-        <li>AUTOR: {{ $documento->Autor }}</li>
-        
+        <li>Nombre: {{ $documento->nombre }}</li>        
+        <li>AUTOR: {{ $documento->autor }}</li>
+        <li>AUTOR: {{ $documento->created_at }}</li>
+        <li>ID ESTANTE: {{ $documento->estante_id }}</li>
     </ul>
 
 

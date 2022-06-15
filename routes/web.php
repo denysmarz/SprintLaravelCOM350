@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocumentoController;
-
+use App\Http\Controllers\EstanteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +17,10 @@ use App\Http\Controllers\DocumentoController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/menu', function () {
     return view('menu');
 });
 
 Route::resource('documentos', DocumentoController::class);
+Route::resource('estantes', EstanteController::class);

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profesion;
 use Illuminate\Http\Request;
 
-class ProfesionController extends Controller
+class TemaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class ProfesionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profesion  $profesion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Profesion $profesion)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class ProfesionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profesion  $profesion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profesion $profesion)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class ProfesionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profesion  $profesion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profesion $profesion)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class ProfesionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profesion  $profesion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profesion $profesion)
+    public function destroy($id)
     {
         //
     }

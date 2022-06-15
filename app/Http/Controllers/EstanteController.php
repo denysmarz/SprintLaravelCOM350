@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Documento;
-use Illuminate\Http\Request;
 use App\Models\Estante;
-class DocumentoController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Tema;
+class EstanteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        $documentos = Documento::all(); //eloquent ORM
-        return view('documentos.index', [
-            'documentos' => $documentos
+        $estantes = Estante::all(); //eloquent ORM
+        return view('estantes.index', [
+            'estantes' => $estantes
         ]);
     }
 
@@ -26,8 +26,8 @@ class DocumentoController extends Controller
      */
     public function create()
     {
-        return view('documentos.create',[
-            'estantes' => Estante::all()
+        return view('estantes.create',[
+            'temas' => Tema::all()
        ]);
     }
 
@@ -39,14 +39,14 @@ class DocumentoController extends Controller
      */
     public function store(Request $request)
     {
-        $documento = new Documento();
-        $documento->nombre = $request->nombre;
-        $documento->autor = $request->autor;
-        $documento->estante_id = $request->estante_id;
-        $documento->created_at = $request->fecha;
-        
-        $documento->save();
-        return redirect()->route('documentos.index');
+        $tema = Tema::find($request->tema_id);
+        $estante = new Estante();
+        $estante->tema = $tema->nombre;
+        $estante->comlumna = $request->columna;
+        $estante->fila = $request->fila;
+        $estante->tema_id = $request->tema_id;
+        $estante->save();
+        return redirect()->route('estantes.create');
     }
 
     /**
@@ -55,11 +55,9 @@ class DocumentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Documento $documento)
+    public function show($id)
     {
-        return view('documentos.show', [
-            'documento' => $documento
-        ]);
+        //
     }
 
     /**
@@ -91,10 +89,8 @@ class DocumentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Documento $documento)
+    public function destroy($id)
     {
-        //dd($documento);
-        $documento->delete();
-        return redirect()->route('documentos.index');
+        //
     }
 }

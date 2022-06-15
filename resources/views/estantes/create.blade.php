@@ -41,24 +41,21 @@
   </script>
 
     <div id="contenedor">
-        <h2>Registrar Libro</h2>
+        <h2>Crear Estante</h2>
         <div id="form">
-        <form action="{{route('documentos.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('estantes.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <p>Nombre:</p> 
-        <input type="text" name="nombre" id="nombre"> <br>
-		<p>Autor:</p>  
-        <input type="text" name="autor" id="autor"> <br>
-		<p>Fecha:</p>  
-        <input type="date" name="fecha" id="fecha"> <br>
-        <p>Estante</p>
-        <select name="estante_id" id="estante_id">
-            @foreach($estantes as $estante)
-                <option value="{{$estante->tema_id}}">{{$estante->tema}}</option>
+        <p>Tema</p>
+        <select name="tema_id" id="tema_id">
+            @foreach($temas as $tema)
+                <option value="{{$tema->id}}">{{$tema->nombre}}</option>
             @endforeach
         </select> 
         <br>
-        
+        <p>Cantidad Columnas</p>
+        <input type="number" name="columna" id="columna"> <br>
+        <p>Tamaño de fila</p>
+        <input type="number" name="fila" id="fila"> <br><br>
         <input type="submit" value="Registrar">
         </form>
         </div>

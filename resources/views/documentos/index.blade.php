@@ -12,20 +12,21 @@
 <header>
   <h1>Mi Organizador Personal</h1>
   <div class="lugar">
-  <form  action="mostrar.php" method="GET">
+
+  <!--<form  action="mostrar.php" method="GET">
         <label for="buscar">Buscador</label>
         <input type="text" name="buscar" value="">
         <input type="submit" value="buscar">
-    </form>
+    </form>-->
   </div>
 </header>
 
 <nav>
   <ul>
-    <li><a href="">Registrar Libro</a><br></li>
-    <li><a href="">Crear Estante</a></li>
-    <li><a href="">Mostrar</a></li>
-    <li><a href="">Estadistica</a></li>
+  <li><a href="{{route('documentos.create')}}">Registrar Libro</a><br></li>
+    <li><a href="{{route('estantes.create')}}">Crear Estante</a></li>
+    <li><a href="{{route('documentos.index')}}">Mostrar</a></li>
+    <!--<li><a href="">Estadistica</a></li>-->
   </ul>
   <div class="hide">
     <i class="fa fa-bars" aria-hidden="true"></i> Menu
@@ -40,13 +41,13 @@
   </script>
 
     <center>
-    <table style="text-align: center;" border="1">
+    <table style="text-align: center;" border="1"class="paleBlueRows">
     <thead>
         <tr>
             <th>ID </th>
-            <th><a href="">Nombre</a></th>
-            <th><a href="">Fecha</a> </th>
-            <th><a href="">Autor</a> </th>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Fecha</th>
             <th>Operaciones</th>
 
         </tr>
@@ -56,15 +57,16 @@
         
             <tr>
                 <td>{{ $documento->id }}</td>
-                <td>{{ $documento->NombreTex }}</td>
-                <td>{{ $documento->Fecha }}</td>
-                <td>{{ $documento->Autor }}</td>               
+                <td>{{ $documento->nombre }}</td>
+                
+                <td>{{ $documento->autor }}</td>
+                <td>{{ $documento->created_at }}</td>               
                 <td>
-                <a href="{{ route('documentos.show', $documento->id) }}"><button>Mostrar</button></a>
+                <!--<a href="{{ route('documentos.show', $documento->id) }}"><button>Mostrar</button></a>-->
                         <form action="{{ route('documentos.destroy', $documento->id) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Eliminar</button>
+                            <button type="submit" class="btn">Eliminar</button>
                         </form>
                 </td>
 

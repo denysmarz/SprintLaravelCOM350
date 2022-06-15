@@ -15,20 +15,20 @@
 <header>
   <h1>Mi Organizador Personal</h1>
   <div class="lugar">
-  <form  action="mostrar.php" method="GET">
+  <!--<form  action="mostrar.php" method="GET">
         <label for="buscar">Buscador</label>
-        <input type="text" name="buscar" placeholder="Buscar" value="<?php echo isset($buscar) ? $buscar : ''; ?>">
+        <input type="text" name="buscar" placeholder="Buscar" value="
         <input type="submit" value="buscar">
-    </form>
+    </form>-->
   </div>
 </header>
 
 <nav>
   <ul>
-    <li><a href="FormRegistro.php">Registrar Libro</a><br></li>
-    <li><a href="Re_Estante.php">Crear Estante</a></li>
+    <li><a href="{{route('documentos.create')}}">Registrar Libro</a><br></li>
+    <li><a href="{{route('estantes.create')}}">Crear Estante</a></li>
     <li><a href="{{route('documentos.index')}}">Mostrar</a></li>
-    <li><a href="estadistica.php">Estadistica</a></li>
+    <!--<li><a href="estadistica.php">Estadistica</a></li>-->
   </ul>
   <div class="hide">
     <i class="fa fa-bars" aria-hidden="true"></i> Menu
