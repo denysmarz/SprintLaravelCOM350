@@ -39,10 +39,10 @@ class EstanteController extends Controller
      */
     public function store(Request $request)
     {
-        $tema = Tema::find($request->tema_id);
+        //$tema = Tema::find($request->tema_id);
         $estante = new Estante();
-        $estante->tema = $tema->nombre;
-        $estante->comlumna = $request->columna;
+        $estante->nombre = $request->nombre;
+        $estante->columna = $request->columna;
         $estante->fila = $request->fila;
         $estante->tema_id = $request->tema_id;
         $estante->save();

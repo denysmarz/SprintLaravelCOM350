@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Documento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Estante;
 class DocumentoController extends Controller
 {
@@ -11,11 +12,14 @@ class DocumentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    
+    public function index(Request $request)
     {
-        $documentos = Documento::all(); //eloquent ORM
+        
+        $texto=$request->get('texto');
+        $documentos = Documento::where("nombre",'like','%'.$request->texto.'%')->get();
         return view('documentos.index', [
-            'documentos' => $documentos
+            'documentos' => $documentos,'texto'=>$texto
         ]);
     }
 
@@ -68,9 +72,12 @@ class DocumentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Documento $documento)
     {
-        //
+        return view('documentos.edit', [
+            'documento' => $documento,
+            'estantes' => Estante::all()
+        ]);
     }
 
     /**
@@ -80,9 +87,12 @@ class DocumentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Documento $documento)
     {
-        //
+    
+        $documento->estante_id = $request->estante_id;
+        $documento->save();
+        return redirect()->route('documentos.index');
     }
 
     /**

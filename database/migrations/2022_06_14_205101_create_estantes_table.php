@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('estantes', function (Blueprint $table) {
             $table->id();
-            $table->string('tema',40);
-            $table->string('comlumna',40);
+            $table->string('nombre',40);
+            $table->string('columna',40);
             $table->string('fila',40);
             $table->unsignedBigInteger('tema_id');
             $table->timestamps();

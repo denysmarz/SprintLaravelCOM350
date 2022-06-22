@@ -16,32 +16,32 @@ class EstanteSeeder extends Seeder
     public function run()
     {
         DB::table('estantes')->insert([
-            'tema' => 'Biologia',
-            'comlumna' => '3',
+            'nombre' => 'Biologia moderna',
+            'columna' => '3',
             'fila' => '4',
             'tema_id' => '1',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('estantes')->insert([
-            'tema' => 'Biologia',
-            'comlumna' => '4',
+            'nombre' => 'Biologia acuatica',
+            'columna' => '4',
             'fila' => '4',
             'tema_id' => '1',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('estantes')->insert([
-            'tema' => 'Historia',
-            'comlumna' => '2',
+            'nombre' => 'Historia del mundo',
+            'columna' => '2',
             'fila' => '3',
             'tema_id' => '2',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('estantes')->insert([
-            'tema' => 'Ficcion',
-            'comlumna' => '4',
+            'nombre' => 'Ficcion comics',
+            'columna' => '4',
             'fila' => '2',
             'tema_id' => '5',
             'created_at' => now(),

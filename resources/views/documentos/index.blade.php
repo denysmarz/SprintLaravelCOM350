@@ -13,11 +13,13 @@
   <h1>Mi Organizador Personal</h1>
   <div class="lugar">
 
-  <!--<form  action="mostrar.php" method="GET">
-        <label for="buscar">Buscador</label>
-        <input type="text" name="buscar" value="">
+<center>
+  <br><br><form  action="{{route('documentos.index')}}" method="GET">
+        
+        <input type="text" name="texto" value="{{$texto}}">
         <input type="submit" value="buscar">
-    </form>-->
+  </form>
+  </center>
   </div>
 </header>
 
@@ -63,11 +65,14 @@
                 <td>{{ $documento->created_at }}</td>               
                 <td>
                 <!--<a href="{{ route('documentos.show', $documento->id) }}"><button>Mostrar</button></a>-->
-                        <form action="{{ route('documentos.destroy', $documento->id) }}" method="post">
+                        <form action="{{ route('documentos.destroy', $documento->id) }}" method="get">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn">Eliminar</button>
+                            
                         </form>
+                        
+                        <a href="{{ route('documentos.edit', $documento->id) }}"><button class="btn">Cambiar</button></a>
                 </td>
 
             </tr>

@@ -52,11 +52,17 @@
             @endforeach
         </select> 
         <br>
+        <p>Nombre</p>
+        <input type="text" name="nombre" id="nombre"><br>
+
         <p>Cantidad Columnas</p>
         <input type="number" name="columna" id="columna"> <br>
+
         <p>Tamaño de fila</p>
         <input type="number" name="fila" id="fila"> <br><br>
+
         <input type="submit" value="Registrar">
+        <br><br>
         </form>
         </div>
     
